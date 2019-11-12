@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,118 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ControlsLab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Generator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mn-db-vhM">
+                                <rect key="frame" x="20" y="44" width="374" height="39.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Suit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hec-Ch-UUH">
+                                <rect key="frame" x="20" y="91.5" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AB6-MO-4AG">
+                                <rect key="frame" x="142" y="120" width="150" height="54.5"/>
+                                <segments>
+                                    <segment title="" image="heart.fill" catalog="system"/>
+                                    <segment title="" image="suit.spade.fill" catalog="system"/>
+                                    <segment title="" image="suit.club.fill" catalog="system"/>
+                                    <segment title="" image="suit.diamond.fill" catalog="system"/>
+                                </segments>
+                                <connections>
+                                    <action selector="suitChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="WPD-Vy-imX"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlankCard" translatesAutoresizingMaskIntoConstraints="NO" id="iX8-yN-gY0">
+                                <rect key="frame" x="62" y="318" width="310" height="453"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="453" id="gHw-d4-thg"/>
+                                </constraints>
+                            </imageView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="13" translatesAutoresizingMaskIntoConstraints="NO" id="0ed-AR-StT">
+                                <rect key="frame" x="170" y="262" width="94" height="32"/>
+                                <connections>
+                                    <action selector="valueStepped:" destination="BYZ-38-t0r" eventType="valueChanged" id="1Vl-yX-qXx"/>
+                                </connections>
+                            </stepper>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="Awv-s7-eo2">
+                                <rect key="frame" x="104" y="458" width="69.5" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="coq-iB-tXu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUS-jx-faR">
+                                <rect key="frame" x="20" y="233.5" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7N3-ao-ujv">
+                                <rect key="frame" x="133" y="414" width="11.5" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="ynC-MT-PR8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8mn-db-vhM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0gx-rf-ul1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8mn-db-vhM" secondAttribute="trailing" constant="20" id="24j-Js-CTO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Awv-s7-eo2" secondAttribute="bottom" constant="346" id="2vd-1O-0cc"/>
+                            <constraint firstItem="hec-Ch-UUH" firstAttribute="top" secondItem="8mn-db-vhM" secondAttribute="bottom" constant="8" id="3cm-tw-73L"/>
+                            <constraint firstItem="7N3-ao-ujv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="133" id="4Rq-qL-HnQ"/>
+                            <constraint firstItem="AB6-MO-4AG" firstAttribute="centerX" secondItem="0ed-AR-StT" secondAttribute="centerX" id="7Bf-Ad-lDg"/>
+                            <constraint firstItem="hec-Ch-UUH" firstAttribute="top" secondItem="8mn-db-vhM" secondAttribute="bottom" constant="8" id="84X-rb-y4t"/>
+                            <constraint firstItem="Awv-s7-eo2" firstAttribute="centerX" secondItem="7N3-ao-ujv" secondAttribute="centerX" id="9sS-CF-5pW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Awv-s7-eo2" secondAttribute="trailing" constant="240.5" id="Eew-P2-N2U"/>
+                            <constraint firstItem="iX8-yN-gY0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="S7h-45-7Zi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wUS-jx-faR" secondAttribute="trailing" id="SOo-uu-m7a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hec-Ch-UUH" secondAttribute="trailing" id="Xpt-QM-f9R"/>
+                            <constraint firstItem="wUS-jx-faR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="YFl-zh-636"/>
+                            <constraint firstItem="hec-Ch-UUH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="YwQ-Lj-Cb1"/>
+                            <constraint firstItem="AB6-MO-4AG" firstAttribute="centerX" secondItem="hec-Ch-UUH" secondAttribute="centerX" id="bJw-13-6hz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iX8-yN-gY0" secondAttribute="bottom" constant="91" id="gPO-Fx-bsK"/>
+                            <constraint firstItem="AB6-MO-4AG" firstAttribute="centerX" secondItem="wUS-jx-faR" secondAttribute="centerX" id="hxe-XC-6bm"/>
+                            <constraint firstItem="8mn-db-vhM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mXI-yV-eVE"/>
+                            <constraint firstItem="AB6-MO-4AG" firstAttribute="top" secondItem="hec-Ch-UUH" secondAttribute="bottom" constant="8" id="nAD-gs-MO9"/>
+                            <constraint firstItem="iX8-yN-gY0" firstAttribute="top" secondItem="0ed-AR-StT" secondAttribute="bottom" constant="24" id="o0V-p3-dSW"/>
+                            <constraint firstItem="0ed-AR-StT" firstAttribute="top" secondItem="wUS-jx-faR" secondAttribute="bottom" constant="8" id="phE-vx-7UI"/>
+                            <constraint firstItem="AB6-MO-4AG" firstAttribute="centerX" secondItem="iX8-yN-gY0" secondAttribute="centerX" id="rAO-pA-pwk"/>
+                            <constraint firstItem="wUS-jx-faR" firstAttribute="top" secondItem="AB6-MO-4AG" secondAttribute="bottom" constant="60" id="rbm-FI-OBx"/>
+                            <constraint firstItem="Awv-s7-eo2" firstAttribute="top" secondItem="7N3-ao-ujv" secondAttribute="bottom" constant="8" id="upT-r7-Bp5"/>
+                            <constraint firstItem="AB6-MO-4AG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="xbf-0G-D25"/>
+                            <constraint firstItem="wUS-jx-faR" firstAttribute="top" secondItem="AB6-MO-4AG" secondAttribute="bottom" constant="60" id="ywI-Dg-Moj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cardImage" destination="Awv-s7-eo2" id="3ap-Be-6Jl"/>
+                        <outlet property="suitSelector" destination="AB6-MO-4AG" id="f5l-bI-Mc4"/>
+                        <outlet property="topLabel" destination="7N3-ao-ujv" id="WTs-cZ-lLg"/>
+                        <outlet property="valueSelector" destination="0ed-AR-StT" id="Lan-GA-VQJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BlankCard" width="400" height="560"/>
+        <image name="heart" width="225" height="225"/>
+        <image name="heart.fill" catalog="system" width="64" height="54"/>
+        <image name="suit.club.fill" catalog="system" width="64" height="60"/>
+        <image name="suit.diamond.fill" catalog="system" width="52" height="64"/>
+        <image name="suit.spade.fill" catalog="system" width="64" height="62"/>
+    </resources>
 </document>
